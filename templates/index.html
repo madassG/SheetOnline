@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+<div class="main">
+    <div class="main-content centered">
+        <picture>
+            <source srcset="{% static 'img/logo.svg' %}" type="image/webp">
+            <img src="{% static '/img/logo.svg' %}" alt="" class="main-content__img">
+        </picture>
+        <h2 class="main-content__title">SheetOnline</h2>
+        <form class="main-content-form" action="/" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% if error %}{{error}}{% endif %}
+<!--            {% for error in form.errors %}-->
+<!--            {{error}}-->
+<!--            {% endfor %}-->
+<!--            <label class="main-content-form__label" for="format">Формат ведомости</label>-->
+<!--            <select id="format" name="format" class="main-content-form__select" required>-->
+<!--                <option value="1">02.20/2020.2-943</option>-->
+<!--            </select>-->
+<!--            <label class="main-content-form__label" for="columns">Столбцы</label>-->
+<!--            <input class="main-content-form__text" id="columns" type="text" name="columns" placeholder="Столбцы через запятую, например 1,2,3" required oninvalid="this.setCustomValidity('Заполните это поле')"oninput="this.setCustomValidity('')">-->
+<!--            <label class="main-content-form__label" for="file">PDF-файл</label>-->
+<!--            <input class="main-content-form__file" id="file" type="file" name="file" required oninvalid="this.setCustomValidity('Загрузите файл')"oninput="this.setCustomValidity('')">-->
+            {{form}}
+            <button class="main-content-form__submit" type="submit">Отправить</button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
