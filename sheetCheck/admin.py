@@ -4,7 +4,7 @@ from . import models
 
 @admin.register(models.Sheet)
 class SheetAdmin(admin.ModelAdmin):
-    list_display = ['sheet_format', 'columns', 'file']
+    list_display = ['sheet_format', 'columns', 'file', 'date_added']
     search_fields = ['sheet_format']
     list_filter = ('sheet_format',)
 
